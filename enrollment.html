@@ -26,7 +26,6 @@
         justify-content: center; /* Centers items vertically */
         text-align: center; /* Centers text inside elements (optional) */
       }
-
       .footers {
         position: sticky;
         bottom: 0;
@@ -222,85 +221,93 @@
     </style>
   </head>
   <body>
-    <header>
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="welcomeModal"
-        tabindex="-1"
-        aria-labelledby="welcomeModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="welcomeModalLabel">
-                Welcome Back Teacher!
-              </h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <span class="text-muted"
-                >Note: Disregard this pop up if you're an enrollee. Thank you
-                for your understanding!</span
-              >
-              <div class="modal-body pt-2">
-                <form class="">
-                  <div class="form-floating mb-3 position-relative">
-                    <input
-                      type="email"
-                      class="form-control rounded-3 pe-5"
-                      id="floatingInput"
-                      placeholder="name@example.com"
-                    />
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="20"
-                      height="20"
-                      fill="gray"
-                      class="position-absolute"
-                      style="top: 50%; right: 10px; transform: translateY(-50%);"
-                    >
-                      <title>account</title>
-                      <path
-                        d="M9 3H13V4H14V5H15V9H14V10H13V11H9V10H8V9H7V5H8V4H9V3M10 8V9H12V8H13V6H12V5H10V6H9V8H10M7 12H15V13H17V14H18V15H19V19H3V15H4V14H5V13H7V12M6 16H5V17H17V16H16V15H14V14H8V15H6V16Z"
-                      />
-                    </svg>
-                    <label for="floatingInput">Email address</label>
-                  </div>
-                  
-                  <div class="form-floating mb-3">
-                    <input
-                      type="password"
-                      class="form-control rounded-3"
-                      id="floatingPassword"
-                      placeholder="Password"
-                    />
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="welcomeModal"
+      tabindex="-1"
+      aria-labelledby="welcomeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="welcomeModalLabel">
+              Welcome Back Teacher!
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <span class="text-muted">
+              Note: Disregard this pop up if you're an enrollee. Thank you for
+              your understanding!
+            </span>
+            <div class="modal-body pt-2">
+              <form>
+                <div class="form-floating mb-3 position-relative">
+                  <input
+                    type="email"
+                    class="form-control rounded-3 pe-5"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
                     width="20"
                     height="20"
                     fill="gray"
                     class="position-absolute"
-                    style="top: 50%; right: 10px; transform: translateY(-50%);"><title>lock</title><path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" /></svg>
-                    <label for="floatingPassword">Password</label>
-                  </div>
-                  <button
-                    class="w-100 btn btn-lg rounded-3 btn-success"
-                    type="submit"
+                    style="top: 50%; right: 10px; transform: translateY(-50%)"
                   >
-                    Sign in
-                  </button>
-              </div>
+                    <title>account</title>
+                    <path
+                      d="M9 3H13V4H14V5H15V9H14V10H13V11H9V10H8V9H7V5H8V4H9V3M10 8V9H12V8H13V6H12V5H10V6H9V8H10M7 12H15V13H17V14H18V15H19V19H3V15H4V14H5V13H7V12M6 16H5V17H17V16H16V15H14V14H8V15H6V16Z"
+                    />
+                  </svg>
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control rounded-3"
+                    id="floatingPassword"
+                    placeholder="Password"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    fill="gray"
+                    class="position-absolute"
+                    style="top: 50%; right: 10px; transform: translateY(-50%)"
+                  >
+                    <title>lock</title>
+                    <path
+                      d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"
+                    />
+                  </svg>
+                  <label for="floatingPassword">Password</label>
+                </div>
+                <button
+                  class="w-100 btn btn-lg rounded-3 btn-success"
+                  id="signInButton"
+                >
+                  Sign in
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-success">
         <div class="container">
           <a class="navbar-brand" href="index.html">
@@ -367,7 +374,6 @@
             </li>
           </ul>
         </div>
-
         <div class="col-lg-5 offset-lg-1 p-0 overflow-hidden shadow-lg">
           <img
             class="rounded-lg-3 img-fluid"
@@ -407,7 +413,9 @@
                 aria-label="Recipient's username"
                 aria-describedby="basic-addon2"
               />
-              <span class="input-group-text" id="basic-addon2">@example.com</span>
+              <span class="input-group-text" id="basic-addon2"
+                >@example.com</span
+              >
             </div>
             <label for="basic-url" class="form-label"
               >Provide Form 138 below:</label
@@ -443,7 +451,6 @@
           </div>
         </div>
       </div>
-      
       <!-- Modal -->
       <div
         class="modal fade"
@@ -455,7 +462,10 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title d-flex align-items-center" id="responseModalLabel">
+              <h5
+                class="modal-title d-flex align-items-center"
+                id="responseModalLabel"
+              >
                 You're enrollment request is settled!
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -471,7 +481,6 @@
                   />
                 </svg>
               </h5>
-              
               <button
                 type="button"
                 class="btn-close"
@@ -480,8 +489,8 @@
               ></button>
             </div>
             <div class="modal-body">
-              Thank you for your response! Your request will be processed in no time.
-              We'll send an email for updates. Stay in touch.
+              Thank you for your response! Your request will be processed in no
+              time. We'll send an email for updates. Stay in touch.
             </div>
             <div class="modal-footer">
               <button
@@ -494,7 +503,7 @@
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </main>
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
@@ -512,6 +521,12 @@
       window.onload = () => {
         welcomeModal.show();
       };
+      document
+        .getElementById("signInButton")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent the form from reloading the page
+          window.location.href = "dashboard.html";
+        });
     </script>
   </body>
 </html>

@@ -19,7 +19,7 @@
         flex-direction: column;
       }
       main {
-        flex: 1; /* Fills the available space */
+        flex: 1;
         display: flex; /* Enables flexbox on main */
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Centers items horizontally */
@@ -255,7 +255,481 @@
         </div>
       </nav>
     </header>
-    <main></main>
+    <main>
+      <div
+        class="container-fluid p-3 text-start pb-0 align-items-center border shadow-lg"
+      >
+        <h2 class="container display-7 lh-1 text-muted mt-5 pb-2 pt-2">
+          Enrollment Dashboard
+        </h2>
+        <p class="lead container">
+          Here's what's going on with the enrollment system right now.
+        </p>
+        <div
+          class="container p-3 text-start pb-0 align-items-center border shadow-lg"
+        >
+          <h2 class="container display-7 lh-1 text-muted pb-2 pt-2">
+            Total Enrollees Requests |
+            <span class="text-muted d-inline-flex align-items-center">
+              <span>6 users</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                class="bi bi-person ms-2"
+                viewBox="0 0 16 16"
+              >
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                />
+              </svg>
+            </span>
+          </h2>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <p class="lead container mb-0">
+              Enrollees requested to join STE Program.
+            </p>
+            <div class="dropdown me-3">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="sortDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sort by Date
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                <li><a class="dropdown-item" href="#">Newest First</a></li>
+                <li><a class="dropdown-item" href="#">Oldest First</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <canvas
+            class="my-4 w-100"
+            id="myChart"
+            width="900"
+            height="380"
+          ></canvas>
+        </div>
+
+        <div
+          class="my-3 container p-3 text-start pb-0 align-items-center border shadow-lg mb-2"
+          style="border-radius: 5px; height: 70vh; overflow-y: auto"
+        >
+          <div class="container-fluid pb-2">
+            <h2
+              class="display-7 lh-1 text-muted shadow-lg p-2"
+              style="border-radius: 5px"
+            >
+              Enrollee Requests
+            </h2>
+          </div>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-2">
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 1
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Crisha Mae Celestino</h5>
+                  <p class="card-text">crishaplays101@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+
+            <!-- Form 138 Modal -->
+            <div
+              class="modal fade"
+              id="form138Modal"
+              tabindex="-1"
+              aria-labelledby="form138ModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title d-flex align-items-center"
+                      id="responseModalLabel"
+                    >
+                      Form 138
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="green"
+                        class="ms-2"
+                      >
+                        <title>note-multiple</title>
+                        <path
+                          d="M16,9H21.5L16,3.5V9M7,2H17L23,8V18A2,2 0 0,1 21,20H7C5.89,20 5,19.1 5,18V4A2,2 0 0,1 7,2M3,6V22H21V24H3A2,2 0 0,1 1,22V6H3Z"
+                        />
+                      </svg>
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <img
+                      src="images/form138.jpg"
+                      alt="Form 138"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Response Modal -->
+            <div
+              class="modal fade"
+              id="responseModal"
+              tabindex="-1"
+              aria-labelledby="responseModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5
+                      class="modal-title d-flex align-items-center"
+                      id="responseModalLabel"
+                    >
+                      Email Sent!
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="green"
+                        class="ms-2"
+                      >
+                        <title>check-circle</title>
+                        <path
+                          d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"
+                        />
+                      </svg>
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    An email will be sent to said enrollee. Thank you for your
+                    response.
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-success"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 2
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Abey Sky Resola</h5>
+                  <p class="card-text">abeysky@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 3
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Abigail Delgado</h5>
+                  <p class="card-text">delgadoabigail@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 4
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Jorge Torcende</h5>
+                  <p class="card-text">torcende.jorge@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 5
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Amberlin Lagarbe</h5>
+                  <p class="card-text">amberlin.lagarbe@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-header d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-person ms-2"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 9a5 5 0 0 0-4.546 2.916c-.543.972-.002 2.084.874 2.31 1.007.263 2.528.275 3.672.275s2.665-.012 3.672-.275c.876-.226 1.417-1.338.874-2.31A5 5 0 0 0 8 9z"
+                    />
+                  </svg>
+                  Enrollee 6
+                </div>
+                <div class="card-body text-start">
+                  <h5 class="card-title">Mariethony Polizon</h5>
+                  <p class="card-text">polizon.marie@gmail.com</p>
+                  <button
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form138Modal"
+                  >
+                    View Form 138
+                  </button>
+                  <button
+                    class="btn btn-success ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Accept
+                  </button>
+                  <button
+                    class="btn btn-danger ms-2"
+                    data-bs-toggle="modal"
+                    data-bs-target="#responseModal"
+                  >
+                    Reject
+                  </button>
+                </div>
+                <div class="card-footer text-muted text-start">2 days ago</div>
+              </div>
+            </div>
+            <!-- Repeat other cards here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
     <footer class="footer mt-auto py-3 bg-light">
       <div class="container">
         <span class="text-muted"
@@ -264,6 +738,18 @@
       </div>
     </footer>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+      integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+      integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dashboard.js"></script>
+
     <script>
       document
         .getElementById("signOutButton")
@@ -271,6 +757,55 @@
           event.preventDefault(); // Prevent the form from reloading the page
           window.location.href = "index.html";
         });
+      /* globals Chart:false, feather:false */
+
+      (() => {
+        "use strict";
+
+        feather.replace({ "aria-hidden": "true" });
+
+        // Graphs
+        const ctx = document.getElementById("myChart");
+        // eslint-disable-next-line no-unused-vars
+        const myChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: [
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+            ],
+            datasets: [
+              {
+                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                lineTension: 0,
+                backgroundColor: "transparent",
+                borderColor: "#007bff",
+                borderWidth: 4,
+                pointBackgroundColor: "#007bff",
+              },
+            ],
+          },
+          options: {
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: false,
+                  },
+                },
+              ],
+            },
+            legend: {
+              display: false,
+            },
+          },
+        });
+      })();
     </script>
   </body>
 </html>
